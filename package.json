@@ -1,0 +1,22 @@
+{
+  "name": "eventos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "josé rafael",
+  "scripts": {
+    "start": "MONGO_HOST=172.21.0.4 nodemon cluster.js",
+    "test": "npx autocannon -c 1 -d 1 -m POST -H \"Content-Type: application/json\" -b '{\"nome\": \"José\"}' --workers 10 --renderStatusCodes --latency 127.0.0.1:4002/user",
+    "test:warm": "npx autocannon -c 1 -d 1 -m POST -H \"Content-Type: application/json\" -b '{\"nome\": \"José\"}' --workers 10 --renderStatusCodes --latency --warmup [ -c 1 -d 1 ] 127.0.0.1:4002/user"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "autocannon": "^7.12.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3"
+  }
+}
